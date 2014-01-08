@@ -22,33 +22,43 @@ def start (q)
 
 	#p1 is a new hash consisting of entries for which the block returns true
 	p1 = q.select do |key, value|
-		key.index("~p1")
+		key.include?("~p1")
 	end
 
 	#prints out all of the values for all the p1
+	i=1 #the choice number that will be added to the start of each option
+
 	p1.each do |k, v|
-		puts v 
-		File.open("out.txt", 'a') {|f| f.write(v)}
+		if k.include?("c")
+			puts "#{i}: #{v}"
+			File.open("out.txt", 'a') {|f| f.write("#{i}: #{v}")}
+			i+=1
+		else
+			puts v
+			File.open("out.txt", 'a') {|f| f.write(v)}
+		end
+		
 	end
+
 end 
 
 # accepts two variables, the hash you created and the user's choice
 # method calls the result that should be printed based on the user's choice
-def eggs_choice (q, choice)
+def user_choice (q, choice)
 
-	if choice == "Use Gordon Ramsey's recipe"
+	if choice == "1"
 		print_result(q, "~p2")
 	end
 
-	if choice == "Whip up your own thing"
+	if choice == "2"
 		print_result(q, "~p3")
 	end
 
-	if choice == "Call your friend for a recipe"
+	if choice == "3"
 		print_result(q, "~p4")
 	end
 
-	if choice == "Not hungry at all"
+	if choice == "4"
 		print_result(q, "~p5")
 	end
 end 
@@ -57,7 +67,7 @@ end
 # method prints the result (the value of the selected key)
 def print_result (q, p_string)
 	p = q.select do |key, value|
-			key.index(p_string)
+			key.include?(p_string)
 		end
 
 	p.each do |k, v|
@@ -66,28 +76,30 @@ def print_result (q, p_string)
 	end
 end
 
-File.open("out.txt", 'w')
-pages_with_questions = {}
-start(pages_with_questions)
 
-choice = gets.chomp
-File.open("out.txt", 'a') {|f| f.write("#{choice} \n")}
-eggs_choice(pages_with_questions, choice)
+start_over = true
 
-puts "Do you want to start again"
-start_over = gets.chomp
-File.open("out.txt", 'a') {|f| f.write("\n #{start_over}")}
+while start_over
+	#open a file which will save the entire user's story
+	File.open("out.txt", 'w')
 
-if start_over == "yes"
+	pages_with_questions = {}
 	start(pages_with_questions)
-else
-	
+
+	choice = gets.chomp
+	File.open("out.txt", 'a') {|f| f.write("#{choice} \n")}
+	user_choice(pages_with_questions, choice)
+
+	puts "Do you want to start again ( yes / no )"
+	start_over_answer = gets.chomp
+	File.open("out.txt", 'a') {|f| f.write("\n #{start_over}")}
+
+	if start_over_answer == "no"
+		start_over = false
+	end
 end
 
-# I need to have a variable that every:
-# input and output
-# gets appended to
-# then save it to a file
+
 
 
 =begin  ===========================================> using if statements

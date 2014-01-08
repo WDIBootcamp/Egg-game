@@ -2,11 +2,49 @@ You want to make scrambled eggs this morning.
 
 Do you...
 
-Use Gordon Ramsey's recipe?
-Whip up your own thing?
-Call your friend for a recipe?
-Not hungary at all?
+1: Use Gordon Ramsey's recipe?
+2: Whip up your own thing?
+3: Call your friend for a recipe?
+4: Not hungary at all?
  
-Not hungary at all 
-You are just not hungary, so no food for you.
+1 
+Success! The eggs are super fluffy and delicious. You are full and ready
+for the day.
+
+
+ yesYou want to make scrambled eggs this morning.
+
+Do you...
+
+1: Use Gordon Ramsey's recipe?
+2: Whip up your own thing?
+3: Call your friend for a recipe?
+4: Not hungary at all?
+ 
+4 
+You are just not hungry, so no food for you.
+ yesYou want to make scrambled eggs this morning.
+
+Do you...
+
+1: Use Gordon Ramsey's recipe?
+2: Whip up your own thing?
+3: Call your friend for a recipe?
+4: Not hungary at all?
+ 
+2 
+You are not hungry this morning, but your taste buds are crying for better.
+
+
+ yesYou want to make scrambled eggs this morning.
+
+Do you...
+
+1: Use Gordon Ramsey's recipe?
+2: Whip up your own thing?
+3: Call your friend for a recipe?
+4: Not hungary at all?
+ 
+4 
+You are just not hungry, so no food for you.
  no
